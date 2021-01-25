@@ -27,6 +27,8 @@ RUN set -Eeuxo pipefail && \
     AGENT_TOOLSDIRECTORY=/opt/hostedtoolcache && \
     echo "AGENT_TOOLSDIRECTORY=$AGENT_TOOLSDIRECTORY" | tee -a /etc/environment && \
     echo "RUN_TOOL_CACHE=$AGENT_TOOLSDIRECTORY" | tee -a /etc/environment && \
+    echo "RUNNER_USER=${RUNNER_USER}" | tee -a /etc/environment && \
+    echo "RUNNER_TEMP=/home/${RUNNER_USER}/work/_temp" | tee -a /etc/environment && \
     echo "DEPLOYMENT_BASEPATH=/opt/runner" | tee -a /etc/environment && \
     echo ". /etc/environment" | tee -a /etc/profile && \
     mkdir -p $AGENT_TOOLSDIRECTORY && \
